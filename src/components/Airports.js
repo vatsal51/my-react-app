@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import CheckBoxForm from "./CheckBoxForm"
 import ItemList from "./ItemList"
+import SearchForm from "./SearchForm"
 
 function Airports(data) {
 
@@ -23,7 +24,6 @@ function Airports(data) {
             .then((response) => response.json())
             .then((data) => {
                 setItems(
-
                     data.map(ItemList =>
                         ItemList ? { ...ItemList, Selection: true } : ItemList
                     )
@@ -32,42 +32,16 @@ function Airports(data) {
             });
     }, [])
 
-
-
-
-    //    handleCheckbox = e => {
-    //        console.log('The link was clicked.');
-    //         let isChecked = e.target.value;
-    //         // e.preventDefault();
-    //         console.log(isChecked)
-    //         // console.log(this.id)
-    //         // console.log("checked")
-    //         // const val=e.value
-    //         // console.log(val);
-    //         // console.log(e)
-    //         items.map(posts => (
-    //             posts.filter(isChecked === posts.value)
-    //         ))
-    //         // this.setState({ filter: "none" });
-    //         // else this.setState({ filter: e.target.value, checked: true });
-    //     };
-
     return (
-
         <>
-
             <ul>
                 <CheckBoxForm items={items} ToggleItem={ToggleItem} />
+                <SearchForm items={items} />
                 <ItemList items={items} />
             </ul>
-
         </>
-
     );
-
-
 }
-
 
 export default Airports
 

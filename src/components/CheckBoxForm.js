@@ -10,7 +10,7 @@ export default function CheckBoxForm(props) {
 		const setArray = new Set(TempList.map(x => JSON.stringify(x)))
 		newList = [...setArray].map(x => JSON.parse(x))
 	});
-	console.log("NewList --", newList);
+	// console.log("NewList --", newList);
 	return (
 		<>
 			{
