@@ -10,7 +10,9 @@ function Airports(data) {
         console.log('ToggleNew', itemsName);
         const UpdateItems = items.map(ItemList =>
             // ItemList.type === itemsName ? items : items
-            ItemList.type === itemsName ? { ...ItemList, Selection: !ItemList.Selection ? true : false } : ItemList
+            ItemList.type === itemsName ? 
+            { ...ItemList, Selection: !ItemList.Selection ? true : false } 
+            : ItemList
         )
         // console.log("dsadsa", UpdateItems);
         setItems(UpdateItems);
@@ -26,7 +28,7 @@ function Airports(data) {
                         ItemList ? { ...ItemList, Selection: true } : ItemList
                     )
                 );
-                console.table(data)
+                // console.table(data)
             });
     }, [])
 

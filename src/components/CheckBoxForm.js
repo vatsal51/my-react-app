@@ -2,33 +2,32 @@ import React, { useState, useEffect } from 'react';
 
 export default function CheckBoxForm(props) {
 
-	const newList = props.items;
-	newList.reduce((Item, index) => {
-		newList.indexOf(Item) === index
-		console.log("updated List", newList.indexOf(Item) === index)
-	})
-	// console.log("updated List", RefreshList);
+	var newList = props.items;
+	var RefreshedList = []; const TempList = [];
+	newList.map(element => {
+		RefreshedList = { "type": element.type, "Selection": element.Selection }
+		TempList.push(RefreshedList);
+		const setArray = new Set(TempList.map(x => JSON.stringify(x)))
+		newList = [...setArray].map(x => JSON.parse(x))
+	});
+	console.log("NewList --", newList);
 	return (
 		<>
 			{
-				newList.map((e) =>
-					<>
-						<li key={e.id}>
-							<label htmlFor={e.type}>{e.type}
-								<input type="checkbox"
-									name={e.type}
-									id={e.type}
-									value={e.type}
-									checked={e.Selection ? true : false}
-									onChange={() => { props.ToggleItem(e.type) }}
-								/>
-							</label>
-						</li>
-					</>
+				newList.map((e, index) =>
+					<li key={index}>
+						<label htmlFor={e.type}>{e.type}
+							<input type="checkbox"
+								name={e.type}
+								id={e.type}
+								value={e.Selection}
+								checked={e.Selection ? true : false}
+								onChange={() => { props.ToggleItem(e.type) }}
+							/>
+						</label>
+					</li>
 				)
-
 			}
-
 		</>
 	)
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function ItemList(props) {
-    console.log("Final", props.items);
+    // console.log("Final", props.items);
     function show(post) {
 
         return <>
