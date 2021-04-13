@@ -12,7 +12,7 @@ export default function CheckBoxForm(props) {
 	});
 	// console.log("NewList --", newList);
 	return (
-		<>
+		<ul>
 			{
 				newList.map((e, index) =>
 					<li key={index}>
@@ -28,6 +28,6 @@ export default function CheckBoxForm(props) {
 					</li>
 				)
 			}
-		</>
+		</ul>
 	)
 }

@@ -1,83 +1,45 @@
 import React, { useState, useEffect } from 'react';
 import ItemList from "./ItemList"
-import axios from 'axios';
 
 
-// const people = [
-// 	  "Siri",
-// 	  "Alexa",
-// 	  "Google",
-// 	  "Facebook",
-// 	  "Twitter",
-// 	  "Linkedin",
-// 	  "Sinkedin"
-// 	];
 export default function SearchForm(props) {
-	const people2 = []
-	props.items.map((p) => {
-	people2.push(p.name);
-	})
-
+	const people = props.items
+	const [people2, setPeople2] = useState(people);
+	// setPeople2(people);
+	useEffect(() => {
+		setPeople2(people);
+		console.log("set ppl", people2)
+	}, [])
 	const [searchTerm, setSearchTerm] = React.useState("");
-  const handleChange = event => {
-    setSearchTerm(event.target.value);
-  };
-
-  const results = !searchTerm
-    ? people2
-    : people2.filter(person =>
-        person.toLowerCase().includes(searchTerm.toLocaleLowerCase())
-      );
+	const handleChange = event => {
+		setSearchTerm(event.target.value);
+		handleSearch(event.target.value)
+	};
 
 
-	
-	//console.log(data)
 
-  
-
-
-	// useEffect(() => {
-	// 	// const results = props.items.filter(person => {
-	// 	// 	person.map((n) => {
-	// 	// 		n.name == searchTerm ? [...n] : n
-	// 	// 	})
-	// 	// 	person.toLowerCase().includes(searchTerm.toLowerCase())
-	// 	// 	console.log("Person", person)
-	// 	// }
-	// 	// );
-
-	// 	const results = props.items.filter(FilterList =>
-	// 		FilterList.name.includes(searchTerm) ?
-	// 			{ ...FilterList, name: "aa" }
-	// 			: FilterList.name
-	// 	)
-	// 	console.log(results.name);
+	var handleSearch = (searchValue) => {
+		// Add More Param as per Response to get more filtering across serveral Coloumn
+		let FilterParam = ["name", "city", "iata"];
+		const filterdata = people.filter((entry) => {
+			return FilterParam.some(filter => entry[filter].includes(searchValue))
+		})
+		setPeople2(filterdata); //Setting Filter Data
+		console.log("Pof", people2);
+	};
 
 
-	// 	setSearchResults(results);
-	// }, []);
 
-	console.log("Searched ", searchTerm)
 	return (
-		<div>
-<input
-        type="text"
-        placeholder="Search"
-        value={searchTerm}
-        onChange={handleChange}
-      />
-      <ul>
-        {results.map(item => (
-          <li>{item}</li>
-        ))}
-      </ul>
-			{/* <input
+		<div className="Div">
+			<input
 				type="text"
 				placeholder="Search"
 				value={searchTerm}
-				onChange={handleChange}
+				onChange={(handleChange)}
 			/>
-			<ItemList items={props.items} /> */}
+			<ItemList items={searchTerm == "" ? people : people2} results={people2} />
+
 
 		</div>
 	)

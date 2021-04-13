@@ -11,15 +11,16 @@ function Airports(data) {
         console.log('ToggleNew', itemsName);
         const UpdateItems = items.map(ItemList =>
             // ItemList.type === itemsName ? items : items
-            ItemList.type === itemsName ? 
-            { ...ItemList, Selection: !ItemList.Selection ? true : false } 
-            : ItemList
+            ItemList.type === itemsName ?
+                { ...ItemList, Selection: !ItemList.Selection ? true : false }
+                : ItemList
         )
         // console.log("dsadsa", UpdateItems);
         setItems(UpdateItems);
     }
 
     useEffect(() => {
+
         fetch("./airports.json")
             .then((response) => response.json())
             .then((data) => {
@@ -34,11 +35,9 @@ function Airports(data) {
 
     return (
         <>
-            <ul>
-                <CheckBoxForm items={items} ToggleItem={ToggleItem} />
-                <SearchForm items={items} />
-                <ItemList items={items} />
-            </ul>
+            <CheckBoxForm items={items} ToggleItem={ToggleItem} />
+            <SearchForm items={items} />
+            {/* <ItemList items={items} /> */}
         </>
     );
 }

@@ -5,14 +5,14 @@ export default function ItemList(props) {
     function show(post) {
 
         return <>
-            {post.name} | &nbsp;
-            {post.icao} | &nbsp;
-            {post.iata} | &nbsp;
-            {post.elevation} | &nbsp;
-            {post.latitude} |  &nbsp;
-            {post.longitude} | &nbsp;
-            {post.type} |&nbsp;
-            {post.Selection}
+            <span>  {post.name} | &nbsp;</span>
+            <span>  {post.icao} | &nbsp;</span>
+            <span>  {post.iata} | &nbsp;</span>
+            <span>  {post.elevation} | &nbsp;</span>
+            <span>  {post.latitude} |  &nbsp;</span>
+            <span>  {post.longitude} | &nbsp;</span>
+            <span>  {post.type} |&nbsp;</span>
+            <span>  {post.Selection}</span>
         </>
     }
     return (
