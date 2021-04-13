@@ -21,7 +21,7 @@ function Airports(data) {
 
     useEffect(() => {
 
-        fetch("./airports.json")
+        fetch("./airports_full.json")
             .then((response) => response.json())
             .then((data) => {
                 setItems(
