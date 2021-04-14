@@ -3,7 +3,8 @@ import React, { useState, useEffect } from 'react';
 export default function CheckBoxForm(props) {
 
 	var newList = props.items;
-	var RefreshedList = []; const TempList = [];
+	var RefreshedList = []; 
+	const TempList = [];
 	newList.map(element => {
 		RefreshedList = { "type": element.type, "Selection": element.Selection }
 		TempList.push(RefreshedList);
@@ -12,6 +13,8 @@ export default function CheckBoxForm(props) {
 	});
 	// console.log("NewList --", newList);
 	return (
+<div className="checkbox">
+			<h3>Type</h3>
 		<ul>
 			{
 				newList.map((e, index) =>
@@ -29,5 +32,6 @@ export default function CheckBoxForm(props) {
 				)
 			}
 		</ul>
+		</div>
 	)
 }

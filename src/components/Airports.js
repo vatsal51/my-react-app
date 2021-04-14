@@ -21,7 +21,7 @@ function Airports(data) {
 
     useEffect(() => {
 
-        fetch("./airports.json")
+        fetch("https://raw.githubusercontent.com/vatsal51/my-react-app/main/public/airports.json")
             .then((response) => response.json())
             .then((data) => {
                 setItems(

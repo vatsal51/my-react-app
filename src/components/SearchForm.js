@@ -32,13 +32,15 @@ export default function SearchForm(props) {
 
 	return (
 		<div className="Div">
+			<div className="search"><h3>Filter by Search</h3>  
 			<input
 				type="text"
 				placeholder="Search"
 				value={searchTerm}
 				onChange={(handleChange)}
-			/>
-			<ItemList items={searchTerm == "" ? people : people2} results={people2} />
+			/></div>
+			
+			<ItemList items={searchTerm == "" ? people : people2} results={people2} className="itemData" />
 
 
 		</div>
