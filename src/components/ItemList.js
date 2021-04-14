@@ -4,20 +4,21 @@ export default function ItemList(props) {
     function show(post) {
 
         return <>
-        
-            <span>  {post.name} </span>
-            <span>  {post.icao}  </span>
-            <span>  {post.iata}  </span>
-            <span>  {post.elevation} ft </span>
-            <span> N {post.latitude}  </span>
-            <span> W {post.longitude}  </span>
-            <span>  {post.type} </span>
+        <div className="data">
+            <span data-head="Name">  {post.name} </span>
+            <span data-head="ICAO">  {post.icao}  </span>
+            <span data-head="IATA">  {post.iata}  </span>
+            <span data-head="Elev">  {post.elevation} ft </span>
+            <span data-head="Lat."> N {post.latitude}  </span>
+            <span data-head="Long."> W {post.longitude}  </span>
+            <span data-head="Type">  {post.type} </span>
             {/* <span>  {post.Selection}</span> */}
+            </div>
         </>
     }
     return (
         <div className="itemData">
-            <div>
+            
             <ul className="header">
                 <li><h4>Name</h4></li>
                 <li><h4>ICAO</h4></li>
@@ -27,7 +28,7 @@ export default function ItemList(props) {
                 <li><h4>Long.</h4></li>
                 <li><h4>Type</h4></li>
             </ul>
-        </div>
+        
             {props.items.map((e) =>
                 <div key={e.id}>
                     {e.Selection === true ? show(e) : false}
