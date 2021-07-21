@@ -7,7 +7,7 @@ export default function ItemList(props) {
 			<div className="data">
 				<span data-head="Name">  {post.name} </span>
 				<span data-head="city">  {post.city} </span>
-				<span data-head="country">  {post.country} </span>
+				<span data-head="country"> {post.country} </span>
 				<span data-head="ICAO">  {post.icao}  </span>
 				<span data-head="IATA">  {post.iata}  </span>
 				<span data-head="Elev">  {post.elevation} ft </span>
@@ -23,6 +23,8 @@ export default function ItemList(props) {
 
 			<ul className="header">
 				<li><h4>Name</h4></li>
+				<li><h4>City</h4></li>
+				<li><h4>Country</h4></li>
 				<li><h4>ICAO</h4></li>
 				<li><h4>IATA</h4></li>
 				<li><h4>Elev</h4></li>
