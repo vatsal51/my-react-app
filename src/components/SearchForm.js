@@ -20,7 +20,7 @@ export default function SearchForm(props) {
 	// Filtering data on search 
 	var handleSearch = (searchValue) => {
 		// Add More Param as per Response to get more filtering across serveral Coloumn
-		let FilterParam = ["name", "city", "iata"];
+		let FilterParam = ["name", "city", "iata","country"];
 		const filterdata = people.filter((entry) => {
 			return FilterParam.some(filter => entry[filter].includes(searchValue))
 		})
