@@ -7,6 +7,7 @@ export default function ItemList(props) {
 			<div className="data">
 				<span data-head="Name">  {post.name} </span>
 				<span data-head="city">  {post.city} </span>
+				<span data-head="country">  {post.country} </span>
 				<span data-head="ICAO">  {post.icao}  </span>
 				<span data-head="IATA">  {post.iata}  </span>
 				<span data-head="Elev">  {post.elevation} ft </span>
