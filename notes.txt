@@ -1,0 +1,32 @@
+
+
+
+Set GetAll
+
+setTable / sliced
+setChecked
+setSearch
+
+
+pagination(start;end){
+GetAll.filter = checboxstate / searchstate .length
+GetAll.length= pagination.length
+for(let i=start;i<=end;i++){
+    setTable(...GetAll[i])
+}
+}
+pagination(0,5)
+pagination=table.length
+
+checkbox=>setTable.filter
+search => setTable.filter
+
+clear 
+
+pagination(2)
+2*5
+i=10,j=15
+pagination(10,15)
+
+onchange ()=> pagination(event.taget.text*pageSize,(event.taget.text*pageSize)+pageSize)
+
