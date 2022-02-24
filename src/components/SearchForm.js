@@ -37,8 +37,8 @@ export default function SearchForm(props) {
         <input
           type="text"
           placeholder="Search"
-          // value={searchTerm}
-          onChange={handleChange}
+          value={searchTerm}
+          onChange={(handleChange)}
         />
       </div>
 
