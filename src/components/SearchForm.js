@@ -23,8 +23,7 @@ export default function SearchForm(props) {
     // Add More Param as per Response to get more filtering across serveral Coloumn
     let FilterParam = ["name"];
     const filterdata = people.filter((entry) => {
-      console.log(searchValue,entry)
-      return FilterParam.some(data => entry[data].includes(searchValue));
+      return FilterParam.some(data => entry[data]?.includes(searchValue));
     });
     setPeople2(filterdata); //Setting Filter Data
     console.table("Pof", people2);
